@@ -1,13 +1,14 @@
 # Autofoorumi
-##Tietokantasovellus harjoitustyo
+Tietokantasovellus harjoitustyo
 
-Tämä on alustava määrittely, joka saattaa muuttua aiheeseen perehtyessä hieman.
-Harjoitustyössä tehdään keskustelufoorumi jonkin yhteisölle, jonka jäsenet tykkäävät autoista. Käyttäjä voi lukea järjestelmän tallennettuja 
-kirjoituksia ja lisätä tietokantaan uusia kirjoituksia, jotka voivat olla myös vastauksia aiempiin kirjoituksiin. 
+
+
+Harjoitustyössä tehdään keskustelufoorumi yhteisölle, jonka jäsenet tykkäävät autoista. Käyttäjä voi lukea järjestelmän tallennettuja 
+keskusteluita ja lisätä tietokantaan uusia kirjoituksia, jotka ovat joko vastauksia keskusteluihin tai uusia keskusteluiden aloituksia. 
 Kirjoituksia voi hakea kirjoittajan hakusanojen perusteella. Lukija voi seurata myös vastinepolkua. 
 Oletusarvoisesti lukijalle näytetään kaikki tiettyä ikää tuoreemmat artikkelit varustettuna informaatiolla siitä onko lukija itse ja 
-ovatko kaikki yhteisön jäsenet jo lukeneet artikkelin. Lukija identifioi aina itsensä ja artikkeleihin liitetään tieto henkilöistä jotka ovat lukeneet ne. 
-Tämä tieto on kaikkien lukijoiden saatavissa.
+ovatko kaikki yhteisön jäsenet jo lukeneet artikkelin. Jotta keskusteluihin voi kommentoida, täytyy olla kirjautunut sisään.
+
 
 Järjestelmän ylläpitäjällä on oma liittymä, jonka kautta hän ylläpitää järjestön käyttäjien jäsentietoja ja heidän kuulumistan eri ryhmiin, siivota kirjoituskantaa ja määrittellä aiheita, 
 joiden perusteella kirjoituksia voi ryhmitellä.
@@ -15,9 +16,9 @@ joiden perusteella kirjoituksia voi ryhmitellä.
 Toimintoja:
 
     *Kirjautuminen
-    *Kirjoituksen lisääminen
+    *Keskustelun lisääminen
     *Kirjoitusten näyttäminen eri kriteerein
     *Ryhmän jäsenen lisääminen, muokkaaminen ja poistaminen
-    *Vastineen laatiminen ja muokkaus
+    *Keskusteluihin vastauksen laatiminen
     *Kirjoitusten poistaminen
     *Aiheiden määrittely, muokkaus ja poisto
