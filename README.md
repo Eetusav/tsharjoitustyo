@@ -15,10 +15,20 @@ joiden perusteella kirjoituksia voi ryhmitell‰.
 
 Toimintoja:
 
-    *Kirjautuminen
-    *Keskustelun lis‰‰minen
-    *Kirjoitusten n‰ytt‰minen eri kriteerein
-    *Ryhm‰n j‰senen lis‰‰minen, muokkaaminen ja poistaminen
-    *Keskusteluihin vastauksen laatiminen
-    *Kirjoitusten poistaminen
-    *Aiheiden m‰‰rittely, muokkaus ja poisto
+    * Kirjautuminen
+    * Keskustelun lis‰‰minen
+    * Kirjoitusten n‰ytt‰minen eri kriteerein
+    * Ryhm‰n j‰senen lis‰‰minen, muokkaaminen ja poistaminen
+    * Keskusteluihin vastauksen laatiminen
+    * Kirjoitusten poistaminen
+    * Aiheiden m‰‰rittely, muokkaus ja poisto
+
+### User Storyt
+[User Storyt Lyhyesti](../documentation/UserStoryt)
+
+### Tietokantakaavio TBD
+[Tietokantakaavio TBD](../documentation/Tietokantakaavio)
+
+
+### Heroku (valitettavasti ei jostain syyst‰ toimi viel‰...)
+1 [Autofoorumi](https://tsoha-bmwfoorumi.herokuapp.com/)
