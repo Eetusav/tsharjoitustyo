@@ -24,10 +24,10 @@ Toimintoja:
     * Aiheiden m‰‰rittely, muokkaus ja poisto
 
 ### User Storyt
-[User Storyt Lyhyesti](../documentation/UserStoryt)
+[User Storyt Lyhyesti](../master/documentation/UserStoryt)
 
 ### Tietokantakaavio TBD
-[Tietokantakaavio TBD](../documentation/Tietokantakaavio)
+[Tietokantakaavio TBD](../master/documentation/Tietokantakaavio)
 
 
 ### Heroku (valitettavasti ei jostain syyst‰ toimi viel‰...)
