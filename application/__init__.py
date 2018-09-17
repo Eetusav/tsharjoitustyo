@@ -1,6 +1,7 @@
 # Tuodaan Flask käyttöön
 from flask import Flask
 app = Flask(__name__)
+import os
 
 # Tuodaan SQLAlchemy käyttöön
 from flask_sqlalchemy import SQLAlchemy
