@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Keskustelut</th>
+      <th></th>
+    </tr>
+    {% for conversation in conversations %}
+    <tr>
+      <td>{{ conversation.name }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
