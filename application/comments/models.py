@@ -1,6 +1,6 @@
 from application import db
 
-class Task(db.Model):
+class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
@@ -8,9 +8,9 @@ class Task(db.Model):
 
     name = db.Column(db.String(144), nullable=False)
   #  nimimerkki = db.Column(db.String(144), nullable=False)
-    done = db.Column(db.Boolean, nullable=False)
+   # done = db.Column(db.Boolean, nullable=False)
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'),  nullable=False)
 
     def __init__(self, name):
         self.name = name
-        self.done = False
+        #self.done = False

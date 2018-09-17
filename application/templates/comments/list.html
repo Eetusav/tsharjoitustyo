@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Kommentit</th>
+      <th></th>
+    </tr>
+    {% for comment in comments %}
+    <tr>
+      <td>{{ comment.name }}</td>
+      <td>{{ comment.account_id }}</td>
+      <td>{{ account_id.comment_id }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
