@@ -18,6 +18,7 @@ else:
 # Luodaan db-olio, jota käytetään tietokannan käsittelyyn
 db = SQLAlchemy(app)
 
+#ff
 # oman sovelluksen toiminnallisuudet
 from application import views
 from application.tasks import models
