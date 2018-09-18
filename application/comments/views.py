@@ -23,15 +23,16 @@ def comments_form():
  # 
 #    return redirect(url_for("tasks_index"))
 
-@app.route("/comments/", methods=["POST"])
+@app.route("/conversations/<conversation_id>", methods=["POST"])
 @login_required
-def comments_create():
+def comments_create(conversation_id):
     form = CommentForm(request.form)
     if not form.validate():
         return render_template("comments/new.html", form = form)
     t = Comment(form.name.data)
     t.account_id = current_user.id
+    t.conversation_id=conversation_id
     db.session().add(t)
     db.session().commit()
   
-    return redirect(url_for("comments_index"))
+    return redirect(url_for("conversation_view", conversation_id = conversation_id))

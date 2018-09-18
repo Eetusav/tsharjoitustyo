@@ -3,6 +3,8 @@ from flask import redirect, render_template, request, url_for
 from application.conversations.models import Conversation
 from application.conversations.forms import ConversationForm
 from flask_login import login_required, current_user
+from application.comments.forms import CommentForm
+from application.comments.models import Comment
 
 @app.route("/conversations", methods=["GET"])
 def conversations_index():
@@ -22,6 +24,18 @@ def conversations_form():
 #    db.session().commit()
  # 
 #    return redirect(url_for("tasks_index"))
+@app.route("/conversations/<conversation_id>", methods=["GET", "POST"])
+@login_required
+def conversation_view(conversation_id):
+    form = CommentForm(request.form)
+   # if not form.validate():
+   #     return render_template("conversations/viewOne.html", form = form)
+   # t = Comment(form.name.data)
+   # t.account_id = current_user.id
+    #t.conversation_id = conversation_id
+    #db.session().add(t)
+    #db.session().commit()
+    return render_template("conversations/viewOne.html", t = Conversation.query.get(conversation_id), form = form, conversation_comments=Conversation.find_comments_for_conversation(conversation_id))
 
 @app.route("/conversations/", methods=["POST"])
 @login_required

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>{{ t.name }}</th>
+      <th></th>
+    </tr>
+    {% for comment in conversation_comments %}
+    <tr>
+      <td>{{ comment.name }}</td>
+      <!-- <td>{{ comment.id }}</td>
+      <td>!! {{ comment.conversation_id }} !!</td> -->
+      <td> {{ comment.username }}</td> 
+    </tr>
+    {% endfor %}
+  </table>
+  <form method="POST" action="{{ url_for('comments_create', conversation_id=t.id) }}">
+    <table>
+      <tr>
+ <!-- <td>
+    {{ form.name.label }}
+  </td> -->
+  <td>
+    {{ form.name }}
+  </td>
+      </tr>
+      <tr>
+  <td colspan="2">
+    <input type="submit" value="Lisää uusi kommentti"/>
+  </td>
+      </tr>
+  </form>
+{% endblock %}
