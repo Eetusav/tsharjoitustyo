@@ -30,5 +30,5 @@ Toimintoja:
 [Tietokantakaavio TBD](../master/documentation/Tietokantakaavio)
 
 
-### Heroku (valitettavasti ei jostain syystä toimi vielä...)
+### Heroku (Osa html näkymistä latautuu html 3.2 vissiinkin...)
 1 [Autofoorumi](https://tsoha-bmwfoorumi.herokuapp.com/)
