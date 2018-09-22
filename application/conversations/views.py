@@ -56,11 +56,15 @@ def conversations_create():
     return redirect(url_for("conversations_index"))
 
 
-@app.route("/conversations/<conversation_id>", methods=["POST"])
+@app.route("/conversations/<conversation_id>/delete", methods=["POST"])
 @login_required
 def conversation_delete(conversation_id):
-    print('tetijet')
     x = Conversation.query.get(conversation_id)
     db.session.delete(x)
     db.session().commit()
+    return redirect(url_for("conversations_index"))
+
+@app.route("/conversations/<conversation_id>/update", methods=["POST"])
+@login_required
+def conversation_update(conversation_id):
     return redirect(url_for("conversations_index"))
