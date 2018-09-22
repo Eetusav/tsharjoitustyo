@@ -22,6 +22,11 @@ def comments_form():
 #    db.session().commit()
  # 
 #    return redirect(url_for("tasks_index"))
+#@app.route("/comments/<comment_id>", methods=["DELETE"])
+#@login_required
+#def comments_delete(comment_id):
+
+
 
 @app.route("/conversations/<conversation_id>", methods=["POST"])
 @login_required

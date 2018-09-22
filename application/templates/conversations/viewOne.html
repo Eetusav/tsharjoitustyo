@@ -5,6 +5,7 @@
     <tr>
       <th>{{ t.name }}</th>
       <th></th>
+      <!--<td colspan="2"><form method = "POST" action="{{ url_for('conversation_delete', conversation_id = t.id) }}"><Button type="submit">Poista</Button></form></td>-->
     </tr>
     {% for comment in conversation_comments %}
     <tr>
