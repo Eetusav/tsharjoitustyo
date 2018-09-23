@@ -28,8 +28,8 @@ CRUD toiminnallisuuden lis‰‰misen kanssa ongelmia...
 ### User Storyt
 [User Storyt Lyhyesti](../master/documentation/UserStoryt)
 
-### Tietokantakaavio TBD
-[Tietokantakaavio TBD](../master/documentation/Tietokantakaavio)
+### Tietokantakaavio
+[Tietokantakaavio](../master/documentation/Tietokantakaavio.png)
 
 
 ### Heroku (K‰ytt‰j‰: Juippi123 Pw: Heinakuu11)

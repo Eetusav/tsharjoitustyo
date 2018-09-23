@@ -1,3 +1,0 @@
-## Tietokantakaavio
-
-TBD.
