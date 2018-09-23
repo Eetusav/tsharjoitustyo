@@ -23,7 +23,6 @@ Toimintoja:
     * Kirjoitusten poistaminen
     * Aiheiden m‰‰rittely, muokkaus ja poisto
 
-CRUD toiminnallisuuden lis‰‰misen kanssa ongelmia...
 
 ### User Storyt
 [User Storyt Lyhyesti](../master/documentation/UserStoryt)
