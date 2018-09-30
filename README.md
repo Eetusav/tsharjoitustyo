@@ -25,7 +25,7 @@ Toimintoja:
 
 
 ### User Storyt
-[User Storyt Lyhyesti](../master/documentation/UserStoryt)
+[User Storyt Lyhyesti](../master/documentation/UserStoryt.md)
 
 ### Tietokantakaavio
 [Tietokantakaavio](../master/documentation/Tietokantakaavio.png)

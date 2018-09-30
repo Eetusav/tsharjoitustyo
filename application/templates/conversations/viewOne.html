@@ -13,6 +13,10 @@
       <!-- <td>{{ comment.id }}</td>
       <td>!! {{ comment.conversation_id }} !!</td> -->
       <td> {{ comment.username }}</td> 
+      {% if current_user.id == comment.account_id %}
+      <td><a href="{{ url_for('comment_update', comment_id=comment.id) }} ">Päivitä</a></td>
+      {% else %}
+      {% endif %}
     </tr>
     {% endfor %}
   </table>

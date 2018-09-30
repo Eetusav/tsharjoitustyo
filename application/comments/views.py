@@ -26,6 +26,22 @@ def comments_form():
 #@login_required
 #def comments_delete(comment_id):
 
+@app.route("/comments/<comment_id>/update", methods=["POST", "GET"])
+@login_required
+def comment_update(comment_id):
+    if request.method == 'GET':
+        return render_template("comments/update.html", form = CommentForm(request.form), comment_id = comment_id, t=Comment.query.get(comment_id))
+    form = CommentForm(request.form)
+    if not form.validate():
+        return render_template("comments/update.html", form = form, comment_id = comment_id, t=Comment.query.get(comment_id))
+    d = Comment(form.name.data)
+    c = Comment.query.get(comment_id)
+    if current_user.id != c.account_id:
+        return render_template("comments/list.html", comments = Comment.query.all())
+    uusiNimi = d.name
+    c.name = uusiNimi
+    db.session().commit()
+    return render_template("comments/list.html", comments = Comment.query.all())
 
 
 @app.route("/conversations/<conversation_id>", methods=["POST"])

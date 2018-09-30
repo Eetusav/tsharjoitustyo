@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('comment_update', comment_id=t.id) }}">
+  <table>
+    <tr>
+<td>
+   Uusi kommentti 
+</td>
+<td>
+  {{ form.name }}
+</td>
+    </tr>
+    <tr>
+<td colspan="2">
+  <input type="submit" value="Edit comment"/>
+</td>
+    </tr>
+</form>
+{% endblock %}
+</html>
