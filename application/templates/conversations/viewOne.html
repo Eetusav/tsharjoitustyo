@@ -4,6 +4,7 @@
   <table>
     <tr>
       <th>{{ t.name }}</th>
+      <td colspan="2"><form method = "POST" action="{{ url_for('conversation_subscribe', conversation_id = t.id) }}"><Button type="submit">Tilaa</Button>
       <th></th>
       <!--<td colspan="2"><form method = "POST" action="{{ url_for('conversation_delete', conversation_id = t.id) }}"><Button type="submit">Poista</Button></form></td>-->
     </tr>

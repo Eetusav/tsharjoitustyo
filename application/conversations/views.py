@@ -5,6 +5,7 @@ from application.conversations.forms import ConversationForm
 from flask_login import login_required, current_user
 from application.comments.forms import CommentForm
 from application.comments.models import Comment
+from application.conversations.models import Subs
 
 
 @app.route("/conversations", methods=["GET"])
@@ -68,3 +69,38 @@ def conversation_delete(conversation_id):
 @login_required
 def conversation_update(conversation_id):
     return redirect(url_for("conversations_index"))
+
+@app.route("/conversations/<conversation_id>/subscribe", methods=["POST"])
+@login_required
+def conversation_subscribe(conversation_id):
+    s = Subs(current_user.id, conversation_id)
+    #s.account_id = current_user.id
+    #s.conversation_id=conversation_id
+    s.account_id=current_user.id
+    s.conversation_id=conversation_id
+    db.session.add(s)
+    db.session.commit()
+    return redirect(url_for("conversations_index"))
+
+@app.route("/conversations/subscriptions", methods=["GET"])
+@login_required
+def conversations_subscriptions():
+    c = current_user.id
+    conversations=Conversation.find_subscriptions(accid=c)
+    #subs = Subs.query.all()
+    return render_template("conversations/subs.html", conversations=conversations)
+
+
+#@app.route("/category/<category_id>", methods=["POST"])
+#@login_required
+#def conversation_create(category_id):
+#    form = ConversationForm(request.form)
+#    if not form.validate():
+#        return render_template("conversations/new.html", form = form)
+#    t = Conversation(form.name.data)
+#    t.account_id = current_user.id
+#    t.category_id=category_id
+#    db.session().add(t)
+#    db.session().commit()
+#  
+#    return redirect(url_for("conversation_view", conversation_id = conversation_id))

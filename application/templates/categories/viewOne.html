@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>{{ t.name }}</th>
+      <th></th>
+      <!--<td colspan="2"><form method = "POST" action="{{ url_for('conversation_delete', conversation_id = t.id) }}"><Button type="submit">Poista</Button></form></td>-->
+    </tr>
+    {% for conversation in category_conversations %}
+    <tr>
+      <td>{{ conversation.name }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <!-- <form method="POST" action="{{ url_for('comments_create', conversation_id=t.id) }}"> 
+    <table>
+      <tr>
+  <td>
+    {{ form.name.label }}
+  </td> 
+  <td>
+    {{ form.name }}
+  </td>
+      </tr>
+      <tr>
+  <td colspan="2">
+    <input type="submit" value="Lisää uusi kommentti"/>
+  </td>
+      </tr>
+  </form> -->
+{% endblock %}
+</html>
