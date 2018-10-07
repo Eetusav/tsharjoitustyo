@@ -38,6 +38,11 @@ class Conversation(Base):
       for row in res:
         response.append({"id":row[0], "name":row[1], "conversation_id":row[2]})
       return response
+    
+    @staticmethod
+    def delete_comments_for_conversation(convid=0):
+      stmt = text("DELETE FROM Comment WHERE Comment.conversation_id = :convid").params(convid=convid)
+      res = db.engine.execute(stmt)
 #class Caco(Base):
 #  conversation_id=db.Column(db.Integer, db.ForeignKey('conversation.id'))
 #  category_id=db.Column(db.Integer, db.ForeignKey('category.id'))

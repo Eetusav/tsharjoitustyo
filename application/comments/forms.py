@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField
+from wtforms import StringField, BooleanField, validators
 
 class CommentForm(FlaskForm):
-    name = StringField("Comment name")
+    name = StringField("Comment name", [validators.Length(min=1)])
    # done = BooleanField("done")
  
     class Meta:

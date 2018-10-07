@@ -6,9 +6,10 @@ from flask_login import login_required, current_user
 from application.comments.forms import CommentForm
 from application.comments.models import Comment
 from application.conversations.models import Subs
+from sqlalchemy import desc, asc
 
 
-@app.route("/conversations", methods=["GET"])
+@app.route("/conversations/", methods=["GET"])
 def conversations_index():
     return render_template("conversations/list.html", conversations=Conversation.query.all())
 
@@ -61,6 +62,7 @@ def conversations_create():
 @login_required
 def conversation_delete(conversation_id):
     x = Conversation.query.get(conversation_id)
+    Conversation.delete_comments_for_conversation(convid=conversation_id)
     db.session.delete(x)
     db.session().commit()
     return redirect(url_for("conversations_index"))
@@ -73,9 +75,10 @@ def conversation_update(conversation_id):
 @app.route("/conversations/<conversation_id>/subscribe", methods=["POST"])
 @login_required
 def conversation_subscribe(conversation_id):
+    my_obj = Subs.query.filter(Subs.conversation_id==conversation_id, Subs.account_id==current_user.id).first()
+    if my_obj is not None:
+        return redirect(url_for("conversations_index"))
     s = Subs(current_user.id, conversation_id)
-    #s.account_id = current_user.id
-    #s.conversation_id=conversation_id
     s.account_id=current_user.id
     s.conversation_id=conversation_id
     db.session.add(s)
@@ -90,17 +93,15 @@ def conversations_subscriptions():
     #subs = Subs.query.all()
     return render_template("conversations/subs.html", conversations=conversations)
 
+@app.route("/conversations/<conversation_id>/subscription/delete", methods=["POST"])
+@login_required
+def subscription_delete(conversation_id):
+    my_obj = Subs.query.filter(Subs.conversation_id==conversation_id, Subs.account_id==current_user.id).first()
+    db.session.delete(my_obj)
+    db.session().commit()
+    return redirect(url_for("conversations_subscriptions"))
 
-#@app.route("/category/<category_id>", methods=["POST"])
+#@app.route("/conversations", methods=["GET"])
 #@login_required
-#def conversation_create(category_id):
-#    form = ConversationForm(request.form)
-#    if not form.validate():
-#        return render_template("conversations/new.html", form = form)
-#    t = Conversation(form.name.data)
-#    t.account_id = current_user.id
-#    t.category_id=category_id
-#    db.session().add(t)
-#    db.session().commit()
-#  
-#    return redirect(url_for("conversation_view", conversation_id = conversation_id))
+#def conversations_sort():
+#    return render_template("conversations/list.html", conversations=Conversation.query.order_by(asc(Conversation.date_created)).limit(1).all())

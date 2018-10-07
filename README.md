@@ -4,24 +4,20 @@ Tietokantasovellus harjoitustyo
 
 
 Harjoitustyössä tehdään keskustelufoorumi yhteisölle, jonka jäsenet tykkäävät autoista. Käyttäjä voi lukea järjestelmän tallennettuja 
-keskusteluita ja lisätä tietokantaan uusia kirjoituksia, jotka ovat joko vastauksia keskusteluihin tai uusia keskusteluiden aloituksia. 
-Kirjoituksia voi hakea kirjoittajan hakusanojen perusteella. Lukija voi seurata myös vastinepolkua. 
-Oletusarvoisesti lukijalle näytetään kaikki tiettyä ikää tuoreemmat artikkelit varustettuna informaatiolla siitä onko lukija itse ja 
-ovatko kaikki yhteisön jäsenet jo lukeneet artikkelin. Jotta keskusteluihin voi kommentoida, täytyy olla kirjautunut sisään.
+keskusteluita ja lisätä tietokantaan uusia kirjoituksia, jotka ovat joko vastauksia keskusteluihin tai uusia keskusteluiden aloituksia. Lukija voi seurata myös vastinepolkua. 
+Jotta keskusteluihin voi kommentoida, täytyy olla kirjautunut sisään.
 
 
-Järjestelmän ylläpitäjällä on oma liittymä, jonka kautta hän ylläpitää järjestön käyttäjien jäsentietoja ja heidän kuulumistan eri ryhmiin, siivota kirjoituskantaa ja määrittellä aiheita, 
-joiden perusteella kirjoituksia voi ryhmitellä.
-
+Järjestelmän ylläpitäjä pystyy poistamaan kommentteja, käyttäjiä ja keskusteluita kannasta.
 Toimintoja:
 
     * Kirjautuminen
     * Keskustelun lisääminen
-    * Kirjoitusten näyttäminen eri kriteerein
-    * Ryhmän jäsenen lisääminen, muokkaaminen ja poistaminen
+    * Kirjoitusten näyttäminen
     * Keskusteluihin vastauksen laatiminen
-    * Kirjoitusten poistaminen
-    * Aiheiden määrittely, muokkaus ja poisto
+    * Omien keskusteluiden poistaminen
+    * Keskusteluiden tilaaminen ja tilausten poisto
+
 
 
 ### User Storyt

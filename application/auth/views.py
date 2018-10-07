@@ -14,8 +14,8 @@ def auth_login():
     
     form = LoginForm(request.form)
     # mahdolliset validoinnit
-    if not form.validate():
-        return render_template("auth/new.html", form = form)
+    #if not form.validate():
+    #    return render_template("auth/new.html", form = form)
     user = User.query.filter_by(
         username=form.username.data, password=form.password.data).first()
     if not user:
@@ -36,8 +36,11 @@ def accounts_create():
     
     form = LoginForm(request.form)
     if not form.validate():
-        return render_template("auth/new.html", form = form)
-
+        return render_template("auth/createform.html", form = form)
+    salasana1 = form.password.data
+    salasana2 = form.password2.data
+    if salasana1 != salasana2:
+        return render_template("auth/createform.html", form = form, error = "Salasanat eivät ole samat")
     t = User(request.form.get("name"),request.form.get("username"),request.form.get("password"))
    # u = Task(request.form.get("nimimerkki"))
 

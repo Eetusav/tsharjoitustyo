@@ -44,12 +44,12 @@ def comment_update(comment_id):
     return render_template("comments/list.html", comments = Comment.query.all())
 
 
-@app.route("/conversations/<conversation_id>", methods=["POST"])
+@app.route("/conversations/<conversation_id>/comment", methods=["POST"])
 @login_required
 def comments_create(conversation_id):
     form = CommentForm(request.form)
     if not form.validate():
-        return render_template("comments/new.html", form = form)
+        return redirect(url_for("conversation_view", conversation_id = conversation_id))
     t = Comment(form.name.data)
     t.account_id = current_user.id
     t.conversation_id=conversation_id
