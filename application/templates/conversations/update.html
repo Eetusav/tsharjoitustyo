@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<form method="POST" action="{{ url_for('categories_create') }}">
+<form method="POST" action="{{ url_for('conversation_update', conversation_id=t.id) }}">
   <table>
     <tr>
 <td>
-  {{ form.name.label }}
+   Uusi keskustelu 
 </td>
 <td>
   {{ form.name }}
@@ -13,7 +13,7 @@
     </tr>
     <tr>
 <td colspan="2">
-  <input type="submit" value="Add a new category"/>
+  <input type="submit" value="Editoi keskustelua"/>
 </td>
     </tr>
 </form>

@@ -26,8 +26,6 @@ from application.comments import views
 from application.auth import models
 from application.auth import views
 from application.auth import forms
-from application.categories import views
-from application.categories import models
 from application.conversations import views
 from application.conversations import models
 

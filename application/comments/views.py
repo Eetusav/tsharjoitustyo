@@ -41,7 +41,7 @@ def comment_update(comment_id):
     uusiNimi = d.name
     c.name = uusiNimi
     db.session().commit()
-    return render_template("comments/list.html", comments = Comment.query.all())
+    return redirect(url_for("conversation_view", conversation_id = c.conversation_id))
 
 
 @app.route("/conversations/<conversation_id>/comment", methods=["POST"])
@@ -56,4 +56,15 @@ def comments_create(conversation_id):
     db.session().add(t)
     db.session().commit()
   
+    return redirect(url_for("conversation_view", conversation_id = conversation_id))
+
+@app.route("/comments/<comment_id>/delete", methods=["POST"])
+@login_required
+def comment_delete(comment_id):
+    x = Comment.query.get(comment_id)
+    conversation_id = x.conversation_id
+    if not x.account_id==current_user.id:
+        redirect(url_for("conversation_view", conversation_id = conversation_id))
+    db.session.delete(x)
+    db.session().commit()
     return redirect(url_for("conversation_view", conversation_id = conversation_id))

@@ -1,41 +1,49 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
-    <tr>
-      <th>{{ t.name }}</th>
-      <td colspan="2"><form method = "POST" action="{{ url_for('conversation_subscribe', conversation_id = t.id) }}"><Button type="submit">Tilaa</Button></form></td>
-      <th></th>
-      <!--<td colspan="2"><form method = "POST" action="{{ url_for('conversation_delete', conversation_id = t.id) }}"><Button type="submit">Poista</Button></form></td>-->
-    </tr>
-    {% for comment in conversation_comments %}
-    <tr>
-      <td>{{ comment.name }}</td>
-      <!-- <td>{{ comment.id }}</td>
-      <td>!! {{ comment.conversation_id }} !!</td> -->
-      <td> {{ comment.username }}</td> 
-      {% if current_user.id == comment.account_id %}
-      <td><a href="{{ url_for('comment_update', comment_id=comment.id) }} ">Päivitä</a></td>
-      {% else %}
-      {% endif %}
-    </tr>
-    {% endfor %}
-  </table>
-  <form method="POST" action="{{ url_for('comments_create', conversation_id=t.id) }}">
-    <table>
-      <tr>
- <!-- <td>
-    {{ form.name.label }}
-  </td> -->
-  <td>
-    {{ form.name }}
-  </td>
-      </tr>
-      <tr>
-  <td colspan="2">
-    <input type="submit" value="Lisää uusi kommentti"/>
-  </td>
-      </tr>
-  </form>
+
+<div class="container">
+  <div class="col-lg-6 col-sm-8 text-center">
+    <div class="well">
+      <h4>{{ t.name }}</h4>
+      <form method="POST" action="{{ url_for('conversation_subscribe', conversation_id = t.id) }}"><Button type="submit">Tilaa</Button></form>
+      <form method="POST" action="{{ url_for('comments_create', conversation_id=t.id) }}">
+        <p></p>
+        <div>
+          <p>
+            <tr>
+              <td>
+                {{ form.name }}
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <input type="submit" value="Lisää uusi kommentti" />
+              </td>
+            </tr>
+      </form>
+      </p>
+    </div>
+    <hr data-brackets-id="12673">
+    <ul data-brackets-id="12674" id="sortable" class="list-unstyled ui-sortable">
+      {% for comment in conversation_comments %}
+      <strong class="pull-left primary-font">{{ comment.username }}</strong>
+      <small class="pull-right text-muted">
+        <span class="glyphicon glyphicon-time"></span>{{ comment.date }} EDT/EST</small>
+      </a><a>{% if current_user.id == comment.account_id %}
+        <a href="{{ url_for('comment_update', comment_id=comment.id) }} "> Päivitä </a>
+        <a colspan="2">
+          <form method="POST" action="{{ url_for('comment_delete', comment_id=comment.id)  }}"><Button type="submit">Poista</Button></form>
+        </a>
+        {% else %}
+        {% endif %}
+        </br>
+        <li class="ui-state-default"> {{ comment.name }} </li>
+        </br>
+        {% endfor %}
+    </ul>
+  </div>
+</div>
 {% endblock %}
+
 </html>
