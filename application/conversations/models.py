@@ -18,20 +18,20 @@ class Conversation(Base):
 
     @staticmethod
     def find_comments_for_conversation(convid=0):
-      stmt = text("SELECT Comment.id, Comment.name, Comment.conversation_id, Account.username, Comment.account_id, Comment.date_created FROM Comment, Account WHERE Account.id = Comment.account_id AND Comment.conversation_id = :convid").params(convid=convid)
+      stmt = text("SELECT Comment.id, Comment.name, Comment.conversation_id, Account.username, Comment.account_id, Comment.date_created,  (select COUNT(Comment.id) FROM Comment WHERE Comment.conversation_id=:convid) FROM Comment, Account WHERE Account.id = Comment.account_id AND Comment.conversation_id = :convid").params(convid=convid)
       res = db.engine.execute(stmt)
       response = []
       for row in res:
-        response.append({"id":row[0], "name":row[1], "conversation_id":row[2], "username":row[3], "account_id":row[4], "date":row[5]})
+        response.append({"id":row[0], "name":row[1], "conversation_id":row[2], "username":row[3], "account_id":row[4], "date":row[5], "count":row[6]})
       return response
   
     @staticmethod
     def find_subscriptions(accid=0):
-      stmt = text("SELECT Conversation.id, Conversation.name, Subs.conversation_id FROM Conversation LEFT JOIN Subs ON Subs.conversation_id=Conversation.id WHERE Subs.account_id=:accid GROUP BY conversation.name").params(accid=accid)
+      stmt = text("SELECT Conversation.id, Conversation.name, Subs.conversation_id, (select COUNT(Subs.conversation_id) FROM Subs WHERE Subs.account_id=:accid) FROM Conversation LEFT JOIN Subs ON Subs.conversation_id=Conversation.id WHERE Subs.account_id=:accid GROUP BY conversation.name").params(accid=accid)
       res = db.engine.execute(stmt)
       response = []
       for row in res:
-        response.append({"id":row[0], "name":row[1], "conversation_id":row[2]})
+        response.append({"id":row[0], "name":row[1], "conversation_id":row[2], "count":row[3]})
       return response
     
     @staticmethod

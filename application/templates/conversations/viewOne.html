@@ -22,6 +22,9 @@
               </td>
             </tr>
       </form>
+      {% if conversation_comments|length > 0 %}
+      <th> Kommentteja yhteensä {{ conversation_comments[0].count }}.</th>
+      {% endif %}
       </p>
     </div>
     <hr data-brackets-id="12673">

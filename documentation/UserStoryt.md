@@ -8,3 +8,5 @@ Käyttäjä pystyy poistamaan omia aloittamiaan keskusteluita ja lisäksi muokkaamaa
 
 Käyttäjä pystyy tilaamaan keskustelun, jolloinka se näkyy erillisellä tilaukset-sivulla. Tilauksen pystyy myös poistamaan.
 
+Käyttäjä pystyy myös tarkastelemaan kommenttien ja keskusteluiden määriä.
+

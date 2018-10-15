@@ -3,8 +3,10 @@
 {% block body %}
   <table>
     <tr>
-      <th>Subatut Keskustelut</th>
-      <th></th>
+      <th>Subatut Keskustelut.</th>
+      {% if conversations|length > 0 %}
+      <th> Tilattuja keskusteluita yhteensä {{ conversations[0].count }}</th>
+      {% endif %}
     </tr>
     {% for conversation in conversations %}
     <tr>
