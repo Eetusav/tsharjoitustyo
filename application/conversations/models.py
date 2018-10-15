@@ -27,7 +27,7 @@ class Conversation(Base):
   
     @staticmethod
     def find_subscriptions(accid=0):
-      stmt = text("SELECT Conversation.id, Conversation.name, Subs.conversation_id, (select COUNT(Subs.conversation_id) FROM Subs WHERE Subs.account_id=:accid) FROM Conversation LEFT JOIN Subs ON Subs.conversation_id=Conversation.id WHERE Subs.account_id=:accid GROUP BY conversation.name").params(accid=accid)
+      stmt = text("SELECT Conversation.id, Conversation.name, Subs.conversation_id, (select COUNT(Subs.conversation_id) FROM Subs WHERE Subs.account_id=:accid) FROM Conversation LEFT JOIN Subs ON Subs.conversation_id=Conversation.id WHERE Subs.account_id=:accid").params(accid=accid)
       res = db.engine.execute(stmt)
       response = []
       for row in res:
