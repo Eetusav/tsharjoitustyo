@@ -21,7 +21,7 @@ Toimintoja:
 
 
 ### User Storyt
-[User Storyt](../master/documentation/UserStoryt.md)
+[User Storyt ja SQL kyselyt](../master/documentation/UserStoryt.md)
 
 ### Tietokantakaavio
 [Tietokantakaavio](../master/documentation/Tietokantakaavio.png)

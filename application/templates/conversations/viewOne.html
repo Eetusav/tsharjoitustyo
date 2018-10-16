@@ -20,6 +20,13 @@
               <td colspan="2">
                 <input type="submit" value="Lisää uusi kommentti" />
               </td>
+              <td>
+                  <ul>
+                        
+                        <a>{{ error }}</a>
+                        
+                  </ul>
+              </td>
             </tr>
       </form>
       {% if conversation_comments|length > 0 %}

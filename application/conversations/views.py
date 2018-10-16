@@ -26,7 +26,7 @@ def conversations_form():
 def conversation_view(conversation_id):
     form = CommentForm(request.form)
     if not form.validate():
-        return render_template("conversations/viewOne.html", t=Conversation.query.get(conversation_id), form=form, conversation_comments=Conversation.find_comments_for_conversation(conversation_id), error="Kommentin minimipituus 1 ja maksimi 144.")
+        return render_template("conversations/viewOne.html", t=Conversation.query.get(conversation_id), form=form, conversation_comments=Conversation.find_comments_for_conversation(conversation_id))
     return render_template("conversations/viewOne.html", t=Conversation.query.get(conversation_id), form=form, conversation_comments=Conversation.find_comments_for_conversation(conversation_id))
 
 

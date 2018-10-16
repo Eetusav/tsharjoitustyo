@@ -2,17 +2,9 @@ from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.comments.models import Comment
 from application.comments.forms import CommentForm
+from application.conversations.models import Conversation
 from flask_login import login_required, current_user
 
-@app.route("/comments", methods=["GET"])
-def comments_index():
-    return render_template("comments/list.html", comments = Comment.query.all())
-
-@app.route("/comments/new/")
-@login_required
-def comments_form():
-    return render_template("comments/new.html", form = CommentForm())
-  
 
 
 @app.route("/comments/<comment_id>/update", methods=["POST", "GET"])
@@ -38,7 +30,7 @@ def comment_update(comment_id):
 def comments_create(conversation_id):
     form = CommentForm(request.form)
     if not form.validate():
-        return redirect(url_for("conversation_view", conversation_id = conversation_id))
+        return render_template("conversations/viewOne.html", t=Conversation.query.get(conversation_id), form=form, conversation_comments=Conversation.find_comments_for_conversation(conversation_id), error="Kommentin pituus tulee olla vähintään 1 merkki ja korkeintaan 512 merkkiä.")
     t = Comment(form.name.data)
     t.account_id = current_user.id
     t.conversation_id=conversation_id
