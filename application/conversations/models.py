@@ -13,7 +13,6 @@ class Conversation(Base):
 
     def __init__(self, name):
         self.name = name
-        #self.done = False
 
     @staticmethod
     def find_comments_for_conversation(convid=0):
