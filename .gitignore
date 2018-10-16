@@ -112,3 +112,4 @@ venv.bak/
 dmypy.json
 application/auth.db
 application/comments.db
+application/comments.db
