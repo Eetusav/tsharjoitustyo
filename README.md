@@ -1,30 +1,33 @@
 # Autofoorumi
 Tietokantasovellus harjoitustyo
 
-
+## Aihekuvaus
 
 Harjoitustyössä tehdään keskustelufoorumi yhteisölle, jonka jäsenet tykkäävät autoista. Käyttäjä voi lukea järjestelmän tallennettuja 
-keskusteluita ja lisätä tietokantaan uusia kirjoituksia, jotka ovat joko vastauksia keskusteluihin tai uusia keskusteluiden aloituksia. Lukija voi seurata myös vastinepolkua. 
-Jotta keskusteluihin voi kommentoida, täytyy olla kirjautunut sisään.
+keskusteluita ja lisätä tietokantaan uusia kirjoituksia, jotka ovat joko vastauksia keskusteluihin tai uusia keskusteluiden aloituksia. Itse kirjoittamiaan keskusteluita ja kommentteja voi myös poistaa ja muokata.
+Käyttäjä voi myös tilata keskusteluita. 
+Kirjoitusten lisääminen, keskusteluiden lukeminen ja tilaaminen vaatii sisäänkirjautumista. Keskusteluiden listaaminen/tarkasteleminen ei vaadi sisäänkirjautumista.
 
 
-Järjestelmän ylläpitäjä pystyy poistamaan kommentteja, käyttäjiä ja keskusteluita kannasta.
 Toimintoja:
 
     * Kirjautuminen
     * Keskustelun lisääminen
     * Kirjoitusten näyttäminen
-    * Keskusteluihin vastauksen laatiminen
-    * Omien keskusteluiden poistaminen
+    * Keskusteluihin vastauksen laatiminen, poistaminen ja päivittäminen
+    * Omien keskusteluiden poistaminen ja päivittäminen
     * Keskusteluiden tilaaminen ja tilausten poisto
 
 
 
 ### User Storyt
-[User Storyt Lyhyesti](../master/documentation/UserStoryt.md)
+[User Storyt](../master/documentation/UserStoryt.md)
 
 ### Tietokantakaavio
 [Tietokantakaavio](../master/documentation/Tietokantakaavio.png)
+
+### Käyttöoohje
+[Käyttöohje](../master/documentation/Käyttöohje.md)
 
 
 ### Heroku (Käyttäjä: Juippi123 Pw: Heinakuu11)

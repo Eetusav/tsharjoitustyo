@@ -13,18 +13,7 @@ def comments_index():
 def comments_form():
     return render_template("comments/new.html", form = CommentForm())
   
-#@app.route("/comments/<comment_id>/", methods=["POST"])
-#@login_required
-#def tasks_set_done(task_id):
-#
- #   t = Comment.query.get(task_id)
- #   t.done = True
-#    db.session().commit()
- # 
-#    return redirect(url_for("tasks_index"))
-#@app.route("/comments/<comment_id>", methods=["DELETE"])
-#@login_required
-#def comments_delete(comment_id):
+
 
 @app.route("/comments/<comment_id>/update", methods=["POST", "GET"])
 @login_required

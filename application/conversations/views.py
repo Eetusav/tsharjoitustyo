@@ -19,15 +19,6 @@ def conversations_index():
 def conversations_form():
     return render_template("conversations/new.html", form=ConversationForm())
 
-# @app.route("/comments/<comment_id>/", methods=["POST"])
-# @login_required
-# def tasks_set_done(task_id):
-#
- #   t = Comment.query.get(task_id)
- #   t.done = True
-#    db.session().commit()
- #
-#    return redirect(url_for("tasks_index"))
 
 
 @app.route("/conversations/<conversation_id>", methods=["GET","POST"])
@@ -36,11 +27,6 @@ def conversation_view(conversation_id):
     form = CommentForm(request.form)
     if not form.validate():
         return render_template("conversations/viewOne.html", t=Conversation.query.get(conversation_id), form=form, conversation_comments=Conversation.find_comments_for_conversation(conversation_id), error="Kommentin minimipituus 1 ja maksimi 144.")
-   # t = Comment(form.name.data)
-   # t.account_id = current_user.id
-    #t.conversation_id = conversation_id
-    # db.session().add(t)
-    # db.session().commit()
     return render_template("conversations/viewOne.html", t=Conversation.query.get(conversation_id), form=form, conversation_comments=Conversation.find_comments_for_conversation(conversation_id))
 
 
@@ -104,7 +90,6 @@ def conversation_subscribe(conversation_id):
 def conversations_subscriptions():
     c = current_user.id
     conversations=Conversation.find_subscriptions(accid=c)
-    #subs = Subs.query.all()
     return render_template("conversations/subs.html", conversations=conversations)
 
 @app.route("/conversations/<conversation_id>/subscription/delete", methods=["POST"])
@@ -115,7 +100,3 @@ def subscription_delete(conversation_id):
     db.session().commit()
     return redirect(url_for("conversations_subscriptions"))
 
-#@app.route("/conversations", methods=["GET"])
-#@login_required
-#def conversations_sort():
-#    return render_template("conversations/list.html", conversations=Conversation.query.order_by(asc(Conversation.date_created)).limit(1).all())

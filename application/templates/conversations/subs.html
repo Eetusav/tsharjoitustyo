@@ -5,14 +5,13 @@
     <tr>
       <th>Subatut Keskustelut.</th>
       {% if conversations|length > 0 %}
-      <th> Tilattuja keskusteluita yhteensä {{ conversations[0].count }}</th>
+      <th> Tilattuja keskusteluita yhteensä {{ conversations[0].count }}.</th>
       {% endif %}
     </tr>
     {% for conversation in conversations %}
     <tr>
       <td><a href="{{ url_for('conversation_view', conversation_id = conversation.id) }}"> {{ conversation.name }} </a></td>
       <td colspan="2"><form method = "POST" action="{{ url_for('subscription_delete', conversation_id = conversation.id) }}"><Button type="submit">Poista tilaus</Button></form></td>
-      <!--<td>Conversation id: {{conversation.id}} ja Conversation_id: {{conversation.conversation_id}}</td>-->
       <td></td>
     </tr>
     {% endfor %}

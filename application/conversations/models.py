@@ -2,7 +2,6 @@ from application import db
 from application.models import Base
 from sqlalchemy.sql import text
 
-#caco = db.Table('caco', db.Colum('category_id', db.Integer, db.ForeignKey('category.id')), db.Column('conversation_id', db.Integer, db.ForeignKey('conversation.id')))
 
 class Conversation(Base):
 
@@ -38,9 +37,7 @@ class Conversation(Base):
     def delete_comments_for_conversation(convid=0):
       stmt = text("DELETE FROM Comment WHERE Comment.conversation_id = :convid").params(convid=convid)
       res = db.engine.execute(stmt)
-#class Caco(Base):
-#  conversation_id=db.Column(db.Integer, db.ForeignKey('conversation.id'))
-#  category_id=db.Column(db.Integer, db.ForeignKey('category.id'))
+
 
 class Subs(Base):
   conversation_id=db.Column(db.Integer, db.ForeignKey('conversation.id'))
